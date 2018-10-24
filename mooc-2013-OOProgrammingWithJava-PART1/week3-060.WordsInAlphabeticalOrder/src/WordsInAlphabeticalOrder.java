@@ -7,6 +7,23 @@ public class WordsInAlphabeticalOrder {
 
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
-        // create here an ArrayList
+        ArrayList<String> list = new ArrayList<String>(); 
+        String givenWord; 
+        
+        while(true){
+            System.out.print("Type a word: ");
+            givenWord = reader.nextLine(); 
+            
+            if(givenWord.isEmpty() || givenWord.trim().length() == 0){
+                break; 
+            }
+            list.add(givenWord); 
+        }
+        Collections.sort(list);
+        System.out.println("You typed the following: ");
+        
+        for(String s: list){
+            System.out.println(s);
+        }
     }
 }

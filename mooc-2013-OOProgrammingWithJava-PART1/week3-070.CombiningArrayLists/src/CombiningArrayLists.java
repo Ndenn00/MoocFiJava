@@ -29,5 +29,12 @@ public class CombiningArrayLists {
 
 
     }
+    
+    public static void combine(ArrayList<Integer> first, ArrayList<Integer> second){
+        
+        for(int i: second){
+            first.add(i);
+        }
+    } 
 
 }

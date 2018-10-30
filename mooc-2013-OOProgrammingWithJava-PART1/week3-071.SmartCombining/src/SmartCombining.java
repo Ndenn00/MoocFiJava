@@ -1,7 +1,9 @@
+
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class SmartCombining {
+
     public static void main(String[] args) {
 
         ArrayList<Integer> list1 = new ArrayList<Integer>();
@@ -15,6 +17,15 @@ public class SmartCombining {
         //smartCombine(list1, list2);
         System.out.println(list1);
         System.out.println(list2);
+    }
+
+    public static void smartCombine(ArrayList<Integer> first, ArrayList<Integer> second) {
+
+        for (int i : second) {
+            if (!first.contains(i)) {
+                first.add(i);
+            }
+        }
     }
 
 }

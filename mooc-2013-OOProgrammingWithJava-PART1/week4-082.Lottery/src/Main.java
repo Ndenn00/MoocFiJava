@@ -10,5 +10,14 @@ public class Main {
             System.out.print(number + " ");
         }
         System.out.println("");
+        
+        LotteryNumbers lotteryNumbers2 = new LotteryNumbers();
+        ArrayList<Integer> numbers2 = lotteryNumbers2.numbers();
+
+        System.out.println("Lottery numbers:");
+        for (int number : numbers2) {
+            System.out.print(number + " ");
+        }
+        System.out.println("");
     }
 }

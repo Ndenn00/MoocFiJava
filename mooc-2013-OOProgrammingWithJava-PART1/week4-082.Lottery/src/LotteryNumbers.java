@@ -1,8 +1,15 @@
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class LotteryNumbers {
+
     private ArrayList<Integer> numbers;
+    private Random random = new Random();
+
+    private final int MINIMUM = 1;
+    private final int MAXIMUM = 39;
+    private final int SIZE_OF_DRAW = 7;
 
     public LotteryNumbers() {
         // Draw numbers as LotteryNumbers is created
@@ -14,13 +21,31 @@ public class LotteryNumbers {
     }
 
     public void drawNumbers() {
-        // We'll format a list for the numbers
+        int newNumber;
         this.numbers = new ArrayList<Integer>();
-        // Write the number drawing here using the method containsNumber()
+
+        while (true) {
+            newNumber = random.nextInt(MAXIMUM - MINIMUM + 1) + MINIMUM;
+            if (!this.numbers.contains(newNumber)) {
+                numbers.add(newNumber);
+            }
+
+            if (this.numbers.size() == SIZE_OF_DRAW) {
+                break;
+            }
+        }
     }
 
     public boolean containsNumber(int number) {
-        // Test here if the number is already in the drawn numbers
-        return true;
+
+        if (this.numbers.contains(number)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public void addNumber(int number) {
+        this.numbers.add(number);
     }
 }

@@ -5,6 +5,8 @@ public class HangmanLogic {
     private String guessedLetters;
     private int numberOfFaults;
 
+    private final int LOSING_FAULT_AMOUNT = 12;
+
     public HangmanLogic(String word) {
         this.word = word.toUpperCase();
         this.guessedLetters = "";
@@ -12,6 +14,7 @@ public class HangmanLogic {
     }
 
     public int numberOfFaults() {
+
         return this.numberOfFaults;
     }
 
@@ -20,26 +23,52 @@ public class HangmanLogic {
     }
 
     public int losingFaultAmount() {
-        return 12;
+        return LOSING_FAULT_AMOUNT;
     }
 
     public void guessLetter(String letter) {
-        // program here the functionality for making a guess
 
-        // if the letter has already been guessed, nothing happens
+        incrementGuessedLetterIfNotPresent(letter);
 
-        // it the word does not contains the guessed letter, number of faults increase
-        // the letter is added among the already guessed letters
+        ifWordContainsGivenLetter(letter);
+
+    }
+
+    public boolean wordContainsLetter (String letter){
+        
+        return this.guessedLetters.contains(letter) ? true: false; 
+    }
+    
+    public void incrementGuessedLetterIfNotPresent(String letter) {
+
+        if (!wordContainsLetter(letter)) {
+            this.guessedLetters += letter;
+        }
+    }
+    
+    public void ifWordContainsGivenLetter(String letter){
+        if (this.word.contains(letter.toUpperCase())) {
+
+        } else {
+            this.numberOfFaults++;
+        }
     }
 
     public String hiddenWord() {
         // program here the functionality for building the hidden word
-
+        
+     
+        String returnWord = ""; 
+        
+        for(int i = 0; i < this.word.length(); i++){
+            
+            returnWord += "_"; 
+        }
         // create the hidden word by interating through this.word letter by letter
         // if the letter in turn is within the guessed words, put it in to the hidden word
         // if the letter is not among guessed, replace it with _ in the hidden word 
-
         // return the hidden word at the end
-        return "";
+        return returnWord;
     }
+
 }

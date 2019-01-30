@@ -101,9 +101,9 @@ public class HangmanLogicTDD {
         
         String expected = "_____"; 
         
-        // no action 
+       String actual = hangmanLogic.hiddenWord(); 
         
-        assertEquals(expected, hangmanLogic.hiddenWord());
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -114,8 +114,10 @@ public class HangmanLogicTDD {
         
         String expected = "T___"; 
         
+        String actual = hangmanLogic.hiddenWord(); 
+        
         // no action 
         
-        assertEquals(expected, hangmanLogic.hiddenWord());
+        assertEquals(expected, actual);
     }
 }
